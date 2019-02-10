@@ -15,22 +15,31 @@
               border: 1px solid #ccc;
               border-radius: 4px;
               box-sizing: border-box;
+              text-align: center;
             }
             
+            #nom{
+            width: 100%;
+            margin-bottom:  5px;
+            cursor: pointer;
+            padding: 12px 20px;
+           
+            }
             
                  
             
             button{
               width: 100%;
               height: 30%;
-              background-color: #4CAF50;
+              /*background-color: #4CAF50;*/
               color: white;
-              padding: 15px 32px;
-              margin: 8px 0;
+              /*padding: 15px 32px;*/
+              /*margin: 100px 0 ;*/
               border: none;
               border-radius: 4px;
               cursor: pointer;
-              font-size: 70px;;
+              font-size: 200%;
+              
               
             }
             
@@ -45,11 +54,12 @@
   
 }
             
-            div {
+            /*div {
               border-radius: 5px;
               background-color: #f2f2f2;
               padding: 20px;
-            }
+            }*/
+            
             form {
                 margin-top: 20px;
 width: 100%;
@@ -59,7 +69,10 @@ display: inline-block;
 text-align: center;
 
 }
+            #dias, #nom, #horas, #future{
+            font-size: 200%;
             
+            }
 
             </style>
   
@@ -69,10 +82,22 @@ text-align: center;
   </head>
   <body>
   
-  
-  
-  Nombre<input id="nom" required>
-Celular<input id="cel" required >
+
+
+
+
+<!--*****************************************************************-->
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+               <!--Código-->
+                     
+  <h1>Confirmar Día Elegido que está Libre ya sea Hoy, esta Semana o la Próxima </h1>
+  <hr>
+  <h2>Celular, Nombre</h2>
+ <input id="nom" placeholder="Nombre, Celular" required>
+
+
 
 <select id="dias" onchange="ShowSelected();" name="producto">
 <option value="12">Lun</option>
@@ -103,19 +128,28 @@ Celular<input id="cel" required >
 
 <select id="future" onchange="ShowSelected();" name="producto">
 <option value="42">Hoy</option>
+<option value="44">Esta Semana</option>
 <option value="43">Próxima Semana</option>
+<option value="45">Libre</option>
+<option value="46">Ocupado</option>
 </select>
-<p id="demo">Row</p>
-<p id="demo1">Col</p>
+
   
   
   
   
- <button type="button" onclick="suma()" class="btn btn-secondary" font-size="70px">Enviar</button>
+ <button type="button" onclick="suma()" class="btn btn-secondary" >Enviar</button>
+
+        </div>
+    </div>
+</div>
+<!--*************************************font-size="200%"****************************-->
+  
+  
   
   
   <script>
-  function ShowSelected()
+  function suma()
 {
 
 /* COLUMNA*/
@@ -137,7 +171,7 @@ var f = future.options[future.selectedIndex].text;
 
 var nom = document.getElementById("nom").value
 
-var cel = document.getElementById("cel").value
+//var cel = document.getElementById("cel").value
 
 
 
@@ -197,16 +231,18 @@ if(col=="Lun"){
 }
 
 
-document.getElementById("demo").innerHTML= row;
-document.getElementById("demo1").innerHTML=col;
+//document.getElementById("demo").innerHTML= row;
+//document.getElementById("demo1").innerHTML=col;
 
 
 
 
-google.script.run.userClicked(row,col,nom,cel,f);
+google.script.run.userClicked(row,col,nom,f);
 
 
+document.getElementById("nom").value="";
 
+alert("Gracias por Programar su Cita, No olvide Actualizar la Agenda al Regresar");
 
 }
   </script>

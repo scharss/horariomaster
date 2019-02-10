@@ -8,7 +8,7 @@ function doGet(e) {
 /*function userClicked(num1, num2, num3, num4, num5*/
 
 //function userClicked(num1)
-function userClicked(row,col,nom,cel,f){
+function userClicked(row,col,nom,f){
   
   var url = "https://docs.google.com/spreadsheets/d/1XPmeY6xjK4VGTGxjff_NrPkpzwKk3U0x6p90cqg09dc/edit#gid=1633754573";
   var ss = SpreadsheetApp.openByUrl(url);
@@ -18,7 +18,7 @@ function userClicked(row,col,nom,cel,f){
   
   var Y1 = ws.getRange(row, col);
   
-  Y1.setValue(nom+cel+f);
+  Y1.setValue(nom+f);
   
   
   
